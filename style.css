@@ -1,0 +1,272 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  display: flex;
+}
+
+.toggler {
+  opacity: 0;
+}
+
+.menu #navbar {
+  width: 20%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  border-right: solid;
+  border-color: rgba(0, 22, 22, 0.4);
+}
+
+#navbar header {
+  font-size: 22px;
+  text-align: center;
+  padding: 20px;
+  font-weight: bold;
+}
+
+#navbar div {
+  height: 95%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#navbar li {
+  position: relative;
+  list-style: none;
+  padding: 15px 0;
+  font-size: 18px;
+}
+
+#navbar a {
+  display: block;
+  width: 100%;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+}
+
+.container #main-doc {
+  position: absolute;
+  margin-left: 290px;
+  padding: 10px;
+  width: 75%;
+}
+
+.main-section {
+  text-align: justify;
+  padding: 1rem;
+}
+
+.main-section header {
+  margin-bottom: 1rem;
+}
+
+.main-section p,
+li {
+  font-weight: lighter;
+  padding: 10px 0;
+  font-size: 15px;
+}
+
+li {
+  margin-left: 3rem;
+}
+
+pre {
+  background-color: #f3f3f3;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+
+code {
+  font-family: monospace;
+  font-size: 14px;
+}
+
+/* Tablets & Mobiles */
+@media only screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .menu .toggler {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+    opacity: 0;
+    width: 50px;
+    height: 50px;
+  }
+
+  .menu .hamburger {
+    background-color: #f3f3f3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 20px;
+    height: 15px;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Hamburger Lines */
+  .menu .hamburger > div {
+    position: relative;
+    flex: none;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s ease;
+  }
+
+  .menu .hamburger > div:before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: inherit;
+    top: -8px;
+    z-index: 1;
+  }
+
+  .menu .hamburger > div:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: inherit;
+    top: 8px;
+    z-index: 1;
+  }
+
+  /* Toggler animation */
+  .menu .toggler:checked + .hamburger > div {
+    transform: rotate(135deg);
+  }
+
+  /* Turn Links to X  */
+  .menu .toggler:checked + .hamburger > div::before,
+  .menu .toggler:checked + .hamburger > div::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+
+  /* Show Menu  */
+  .menu .toggler:checked ~ #navbar {
+    visibility: visible;
+  }
+
+  .menu .toggler:checked ~ #navbar > div {
+    transform: scale(1);
+    transition-duration: 0.4s;
+  }
+
+  .menu #navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .menu #navbar > div {
+    background: rgba(24, 39, 51, 0.85);
+    /* border-radius: 50%; */
+    height: 200vw;
+    width: 200vw;
+    display: flex;
+    flex-direction: column;
+    flex: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transform: scale(0);
+    transition: all 0.4s ease;
+  }
+
+  #navbar header {
+    font-size: 18px;
+    text-align: center;
+    color: white;
+    font-weight: normal;
+  }
+
+  hr {
+    display: none;
+  }
+
+  #navbar ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  #navbar li {
+    list-style: none;
+    padding: 14px;
+    font-size: 16px;
+    margin: 0;
+  }
+
+  #navbar a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .container #main-doc {
+    /* position: relative; */
+    margin: 1rem auto;
+    padding: 10px;
+    width: 90%;
+  }
+
+  .main-section {
+    text-align: justify;
+    padding: 1rem;
+    font-size: small;
+  }
+
+  .main-section header {
+    margin-bottom: 1rem;
+    font-size: large;
+  }
+
+  li {
+    margin-left: 2rem;
+  }
+
+  pre code {
+    /* font-size: 15px; */
+    text-align: left;
+    white-space: pre-line;
+  }
+}
